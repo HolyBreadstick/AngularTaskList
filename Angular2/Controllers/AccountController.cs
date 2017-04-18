@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Angular2.Entities;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,8 +11,13 @@ namespace Angular2.Controllers
 {
     public class AccountController : Controller
     {
-        public Object Login() {
-            return "";
+        public LoginResponse Login(String username, String password) {
+            var response = new LoginResponse("The response for a login.");
+
+            response.Token = "";
+            
+
+            return response;
         }
 
         public Object Register() {
@@ -23,6 +29,8 @@ namespace Angular2.Controllers
         
         public String Token { get; set; }
 
+        public Employee User { get; set; } = new Employee();
+            
         public LoginResponse() : base() {
             
         }
@@ -32,6 +40,8 @@ namespace Angular2.Controllers
 
         }
     }
+
+
 
     public class RootResponse {
 
